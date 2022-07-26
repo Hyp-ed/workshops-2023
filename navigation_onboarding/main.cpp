@@ -10,7 +10,6 @@ int main(){
   //navigation getting called from central logic to estimate our position
   if(doNavigation() == true){
     braking_state = true;
-  };
-
+  }
   return 0;
 }
