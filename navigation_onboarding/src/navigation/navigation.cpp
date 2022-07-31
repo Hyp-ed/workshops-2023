@@ -56,8 +56,8 @@ namespace navigation{
   }
 
   void Navigation::compareKeyenceEncoders(){
-    int32_t deviance = ground_truth_displacement_ - displacement_;
-    if(abs(deviance) > 10){
+    const int32_t deviance = ground_truth_displacement_ - displacement_;
+    if(std::abs(deviance) > 10){
       fail_state_ = true;
     }
   }
