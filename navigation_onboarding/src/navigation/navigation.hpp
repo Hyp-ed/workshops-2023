@@ -85,13 +85,16 @@ namespace navigation{
   static constexpr uint32_t kBreakingPoint = kTrackLength - kBreakingDistance;
 
   //wheel encoder data
-  uint32_t encoders_data_[4] = {0, 0, 0, 0};
+  std::array<uint32_t, 4> encoders_data_ = {0,0,0,0};
+  //uint32_t encoders_data_[4] = {0, 0, 0, 0};
 
   //keyence data
-  uint32_t keyence_data_[2] = {0, 0};
+  std::array<uint32_t, 2> keyence_data_ = {0, 0};
+  //uint32_t keyence_data_[2] = {0, 0};
 
   //boolean mask of reliable wheel encoders
-  bool reliable_encoders_[4] = {true, true, true, true};
+  std::array<bool, 4> reliable_encoders_ = {true, true, true, true};
+  //bool reliable_encoders_[4] = {true, true, true, true};
  };
   
 }

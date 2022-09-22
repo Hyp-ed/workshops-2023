@@ -13,8 +13,8 @@ bool doNavigation(){
   return stop_yet;
 }
 
+// will send a signal somewhere for us to brake
 void brake(){
-  //will send a signal somewhere for us to brake
 }
 
 int main(){

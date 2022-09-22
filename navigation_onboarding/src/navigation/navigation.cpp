@@ -14,7 +14,7 @@ namespace navigation{
     //this function is written badly. try to improve it (hint: look @ style guide!!)
     uint16_t encoder_copy[4];
     for(int i = 0; i < 4; i++){
-      encoder_copy[i] = encoders_data_[i];
+      encoder_copy[i] = encoders_data_.at(i);
     } 
 
     std::sort(encoder_copy, encoder_copy+4);
@@ -41,17 +41,17 @@ namespace navigation{
 
   void Navigation::processEncoders(){
     //usually some function that gets the encoders data from sensors, this is fake data!
-    uint32_t new_encoders_data[4] = {2, 2, 1, 3};
+    std::array<uint32_t, 4> new_encoders_data = {2, 2, 1, 3};
     for(size_t i = 0; i < kNumEncoders; ++i){
-      encoders_data_[i] = new_encoders_data[i];
+      encoders_data_.at(i) = new_encoders_data.at(i);
     }
   }
 
   void Navigation::processKeyence(){
     //also usually fetched from sensors somewhere, data here is fake!
-    uint32_t new_keyence_data[2] = {1, 1};
+    std::array<uint32_t, 2> new_keyence_data = {1, 1};
     for(size_t i = 0; i < kNumKeyenceSensors; ++i){
-      keyence_data_[i] = new_keyence_data[i];
+      keyence_data_.at(i) = new_keyence_data.at(i);
     }
   }
 
