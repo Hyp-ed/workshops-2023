@@ -4,9 +4,8 @@
 
 #include <string>
 
-#include <data/data.hpp>
-#include <utils/system.hpp>
-#include <utils/timer.hpp>
+#include <lib/data/data.hpp>
+#include <lib/utils/timer.hpp>
 
 namespace hyped::state_machine {
 
@@ -67,29 +66,8 @@ MAKE_STATE(Ready)              // Entered after high power is on
 MAKE_STATE(NominalBraking)     // Second phase of the run
 MAKE_STATE(Finished)           // State after the run
 MAKE_STATE(FailureBraking)     // Entered upon failure during the run
+MAKE_STATE(Off)                // Entered after completion of run 
 
 #undef MAKE_STATE
-
-// We need to implement Off separately because it works a bit differently
-class Off : public State {
- public:
-  Off() {}
-  static Off *getInstance() { return &Off::instance_; }
-
-  State *checkTransition();
-
-  void enter()
-  {
-    utils::System &sys = utils::System::getSystem();
-    sys.stop();
-  }
-
-  void exit()
-  {  // We never exit this state
-  }
-
- private:
-  static Off instance_;
-};
 
 }  // namespace hyped::state_machine

@@ -2,7 +2,7 @@
 
 #include "state.hpp"
 
-#include <data/data.hpp>
+#include <lib/data/data.hpp>
 
 namespace hyped {
 
