@@ -6,8 +6,6 @@
 #include <unordered_map>
 #include <vector>
 
-#include <utils/concurrent/lock.hpp>
-
 namespace hyped::data {
 
 // -------------------------------------------------------------------------------------------------
@@ -34,8 +32,6 @@ struct Navigation : public Module {
   static constexpr nav_t kBrakingBuffer      = 20.0;       // m
   nav_t displacement;                                      // m
   nav_t velocity;                                          // m/s
-  nav_t acceleration;                                      // m/s^2
-  nav_t emergency_braking_distance;                        // m
   nav_t braking_distance = 750;                            // m
 };
 
@@ -48,7 +44,6 @@ struct Telemetry : public Module {
   bool calibrate_command       = false;
   bool launch_command          = false;
   bool shutdown_command        = false;
-  bool service_propulsion_go   = false;
   bool emergency_stop_command  = false;
   bool nominal_braking_command = true;
 };
@@ -68,9 +63,6 @@ enum class State {
   kFinished,
   kInvalid
 };
-
-std::optional<std::string> stateToString(const State state);
-std::optional<State> stateFromString(const std::string &state_name);
 
 struct StateMachine {
   bool critical_failure;
@@ -125,17 +117,6 @@ class Data {
   StateMachine state_machine_;
   Telemetry telemetry_;
   Navigation navigation_;
-
-
-  // locks for data substructures
-  utils::concurrent::Lock lock_state_machine_;
-  utils::concurrent::Lock lock_navigation_;
-  utils::concurrent::Lock lock_sensors_;
-  utils::concurrent::Lock lock_motors_;
-
-  utils::concurrent::Lock lock_telemetry_;
-  utils::concurrent::Lock lock_batteries_;
-  utils::concurrent::Lock lock_brakes_;
 
   Data() {}
 
