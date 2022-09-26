@@ -14,8 +14,8 @@ namespace hyped::data {
 enum class ModuleStatus {
   kCriticalFailure,  // state machine transitions to EmergencyBraking/FailureStopped
   kStart,            // Initial module state
-  kInit,   // state machine transistions to Calibrating if all modules have Init or Ready status.
-  kReady,  // state machine transistions to Ready if all modules have Ready status.
+  kInitialize,       // state machine transistions to Calibrating if all modules have Init or Ready status.
+  kReady,            // state machine transistions to Ready if all modules have Ready status.
 };
 
 struct Module {
@@ -28,11 +28,12 @@ struct Module {
 using nav_t            = float;
 struct Navigation : public Module {
   static constexpr nav_t kMaximumVelocity    = 100;        // m/s
-  static constexpr nav_t kRunLength          = 1250.0;     // m
-  static constexpr nav_t kBrakingBuffer      = 20.0;       // m
+  static constexpr nav_t kRunLength          = 100.0;      // m
+  static constexpr nav_t kBrakingBuffer      = 5.0;        // m
   nav_t displacement;                                      // m
   nav_t velocity;                                          // m/s
-  nav_t braking_distance = 750;                            // m
+  // chosen arbitrarily 
+  nav_t braking_distance = 15.0;                           // m
 };
 
 

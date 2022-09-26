@@ -1,10 +1,9 @@
 #pragma once
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
 
-namespace hyped {
-namespace utils {
+namespace hyped::utils {
 
 namespace {
 }
@@ -28,5 +27,4 @@ class StaticAssert<true> {
 };
 #define STATIC_ASSERT(COND) (StaticAssert<(COND) != 0>())
 
-}  // namespace utils
-}  // namespace hyped
+}  // namespace hyped::utils

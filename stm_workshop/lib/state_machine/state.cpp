@@ -1,8 +1,6 @@
 #include "state.hpp"
 
-namespace hyped {
-
-namespace state_machine {
+namespace hyped::state_machine {
 
 //--------------------------------------------------------------------------------------
 //  General State
@@ -150,5 +148,4 @@ State *Off::checkTransition()
   return nullptr;
 }
 
-}  // namespace state_machine
-}  // namespace hyped
+}  // namespace hyped::state_machine

@@ -4,9 +4,7 @@
 
 #include <lib/data/data.hpp>
 
-namespace hyped {
-
-namespace state_machine {
+namespace hyped::state_machine {
 
 /* we would normally use data from all other sub-modules here */
 using hyped::data::Telemetry;
@@ -66,6 +64,4 @@ bool checkEnteredBrakingZone(const data::Navigation &navigation_data);
  */
 bool checkPodStopped(const data::Navigation &navigation_data);
 
-}  // namespace state_machine
-
-}  // namespace hyped
+}  // namespace hyped::state_machine

@@ -2,8 +2,7 @@
 
 #include <sys/time.h>
 
-namespace hyped {
-namespace utils {
+namespace hyped::utils {
 
 uint64_t Timer::time_start_ = Timer::getTimeMicros();
 
@@ -52,5 +51,4 @@ double Timer::getSeconds() const
   return static_cast<double>(elapsed_) * 1.0e-6;
 }
 
-}  // namespace utils
-}  // namespace hyped
+}  // namespace hyped::utils

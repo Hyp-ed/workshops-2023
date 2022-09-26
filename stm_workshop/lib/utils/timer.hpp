@@ -2,10 +2,9 @@
 
 #include "utils.hpp"
 
-#include <stdint.h>
+#include <cstdint>
 
-namespace hyped {
-namespace utils {
+namespace hyped::utils {
 
 class Timer {
  public:
@@ -39,5 +38,4 @@ class ScopedTimer {
   NO_COPY_ASSIGN(ScopedTimer)
 };
 
-}  // namespace utils
-}  // namespace hyped
+}  // namespace hyped::utils

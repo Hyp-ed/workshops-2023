@@ -1,8 +1,6 @@
 #include "data.hpp"
 
-namespace hyped {
-
-namespace data {
+namespace hyped::data {
 
 Data &Data::getInstance()
 {
@@ -40,5 +38,4 @@ void Data::setTelemetryData(const Telemetry &telemetry_data)
   telemetry_ = telemetry_data;
 }
 
-}  // namespace data
-}  // namespace hyped
+}  // namespace hyped::data
