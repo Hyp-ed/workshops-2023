@@ -2,6 +2,8 @@
 
 ## Purpose
 
+[What is git?](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
+
 We will be available during the workshop time to help you if you have any problems related to the guide examples and the workshop exercises.
 If you have any other questions but are not able to ask during the workshop, don't hesitate to message us on Slack!
 
@@ -38,3 +40,7 @@ If you have any other questions but are not able to ask during the workshop, don
 - You should delete them and edit the rest so that both your names as well as those that were already there are present and the alphabetical order is maintained
 - Once you're done, commit your changes and push again
 - Unless someone else was faster than you, the PR should be ready to be merged now
+
+## Further Reading
+
+If you would like to know more about git and useful commands, check out the [git book](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#ch02-git-basics-chapter)
