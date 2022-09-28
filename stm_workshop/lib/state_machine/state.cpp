@@ -28,8 +28,6 @@ State *Idle::checkTransition()
 {
   updateModuleData();
 
-  bool emergency = checkEmergency(nav_data_, telemetry_data_);
-
   return nullptr;
 }
 
@@ -57,7 +55,6 @@ char Ready::string_representation_[] = "Ready";
 State *Ready::checkTransition()
 {
   updateModuleData();
-
 
   return nullptr;
 }
@@ -141,10 +138,9 @@ State *FailureBraking::checkTransition()
 //--------------------------------------------------------------------------------------
 
 Off Off::instance_;
-
+data::State Off::enum_value_       = data::State::kOff;
 State *Off::checkTransition()
 {
-  /* This method should never run */
   return nullptr;
 }
 

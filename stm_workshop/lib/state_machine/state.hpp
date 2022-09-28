@@ -4,8 +4,8 @@
 
 #include <string>
 
-#include <lib/data/data.hpp>
-#include <lib/utils/timer.hpp>
+#include <data/data.hpp>
+#include <utils/timer.hpp>
 
 namespace hyped::state_machine {
 
@@ -56,17 +56,18 @@ class State {
   };
 
 /*
- * Generating structs for all the states
+ * Generating structs for all the states (a condensed version)
  */
 
-/* a condensed version of our states */
-
 MAKE_STATE(Idle)               // State on startup
-MAKE_STATE(Ready)              // Entered after high power is on
+MAKE_STATE(Ready)              // Entered after high power is on  
+
+
 MAKE_STATE(NominalBraking)     // Second phase of the run
 MAKE_STATE(Finished)           // State after the run
-MAKE_STATE(FailureBraking)     // Entered upon failure during the run
-MAKE_STATE(Off)                // Entered after completion of run 
+MAKE_STATE(FailureBraking)     // Entered upon failure during the run   
+
+MAKE_STATE(Off)                // Entered after the pod has finished its run
 
 #undef MAKE_STATE
 

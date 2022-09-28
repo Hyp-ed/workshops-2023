@@ -13,9 +13,9 @@ Navigation Data::getNavigationData()
   return navigation_;
 }
 
-void Data::setNavigationData(const Navigation &nav_data)
+void Data::setNavigationData(const Navigation &navigation_data)
 {
-  navigation_ = nav_data;
+  navigation_ = navigation_data;
 }
 
 StateMachine Data::getStateMachineData()
@@ -23,9 +23,9 @@ StateMachine Data::getStateMachineData()
   return state_machine_;
 }
 
-void Data::setStateMachineData(const StateMachine &sm_data)
+void Data::setStateMachineData(const StateMachine &state_machine_data)
 {
-  state_machine_ = sm_data;
+  state_machine_ = state_machine_data;
 }
 
 Telemetry Data::getTelemetryData()

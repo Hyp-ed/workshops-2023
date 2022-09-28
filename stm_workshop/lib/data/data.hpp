@@ -62,6 +62,7 @@ enum class State {
   kFailureBraking,
   kFailureStopped,
   kFinished,
+  kOff,
   kInvalid
 };
 
