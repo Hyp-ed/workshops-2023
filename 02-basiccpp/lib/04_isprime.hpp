@@ -1,5 +1,5 @@
 #pragma once
 
 namespace hyped::workshop {
-bool isPrime(int n);
+bool isPrime(const int n);
 }

@@ -38,7 +38,7 @@ The exercises may seem easy to some of you, especially the actual programming in
 
 ### Exercise 1 - Temperatures
 
-In `src/01_temperatures.cpp` there are two functions, `celsiusToKelvin` and `celsiusToFahrenheit`. Both take a `double` and return another `double`.
+In `lib/01_temperatures.cpp` there are two functions, `celsiusToKelvin` and `celsiusToFahrenheit`. Both take a `double` and return another `double`.
 
 > From Celsius to Kelvin: `K = C + 273.15`
  
@@ -46,7 +46,7 @@ In `src/01_temperatures.cpp` there are two functions, `celsiusToKelvin` and `cel
 
 ### Exercise 2 - Pancakes
 
-In `src/02_pancakes.hpp` you can see a struct containing information about how many pancakes a particular person had for breakfast.
+In `lib/02_pancakes.hpp` you can see a struct containing information about how many pancakes a particular person had for breakfast.
 
 ```cpp
 struct PancakesEatenBy {
@@ -60,7 +60,7 @@ In particular, each object of type `PancakesEatenBy` has two attributes:
 1. A string containing the name of the person, and
 2. an integer representing the number of pancakes eaten by that person.
 
-In the source file (`src/02_pancakes.cpp`) you can find a function `mostPancakesEaten`.
+In the source file (`lib/02_pancakes.cpp`) you can find a function `mostPancakesEaten`.
 
 > Modify it so that, given a vector of `PancakesEatenBy` objects, it returns the the one where the number of eaten pancakes is the highest.
 
@@ -70,7 +70,7 @@ Below this, you can see another function, `moreThanNPancakesEaten`, which not on
 
 ### Exercise 3 - Vectors
 
-In `src/03_vectors.cpp` there are four functions `sum`, `absoluteSum`, `countNegatives` and `average`. Fill out the implementation for all 4 functions
+In `lib/03_vectors.cpp` there are four functions `sum`, `absoluteSum`, `countNegatives` and `average`. Fill out the implementation for all 4 functions
 
 > Modify the `sum` function implementation so that it returns the sum of all the elements of the vector.
 
@@ -103,7 +103,7 @@ It takes a vector of floating point numbers, and returns the average.
 
 ### Exercise 4 - Prime Number
 
-In `src/04_isprime.cpp`, there's a function `isPrime` that takes an integer `n` and returns a boolean indicating whether the number is a prime or not.
+In `lib/04_isprime.cpp`, there's a function `isPrime` that takes an integer `n` and returns a boolean indicating whether the number is a prime or not.
 
 > Prime numbers are numbers that are only divisable by itself and 1.
 
