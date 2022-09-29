@@ -25,7 +25,8 @@ You can try compiling and running the tests with
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make test
+$ make -j
+$ ctest
 ```
 
 Most tests should fail.

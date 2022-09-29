@@ -1,20 +1,13 @@
-set(target "workshop-test")
-
+set(target hyped_test)
 file(GLOB code "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
-
 add_executable(${target} ${code})
-add_dependencies(${target} googletest)
-
-add_custom_target("${target}-format"
-    COMMAND clang-format -i -style=file ${code}
+target_include_directories(${target}
+    PRIVATE
+    "${CMAKE_SOURCE_DIR}/src"
+    "${CMAKE_CURRENT_SOURCE_DIR}"
 )
-add_dependencies(${target} "${target}-format")
 target_link_libraries(${target}
-    gtest
-    workshop-lib
+    GTest::gtest_main
+    workshop
 )
-
-add_custom_target(test
-    COMMAND "${CMAKE_BINARY_DIR}/test/workshop-test"
-    DEPENDS workshop-test
-)
+gtest_discover_tests(${target})
