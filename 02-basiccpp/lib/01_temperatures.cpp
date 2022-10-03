@@ -4,7 +4,7 @@ namespace hyped::workshop {
 
 double celsiusToKelvin(const double celsius)
 {
-  return 1.0;
+  return 1.;
 }
 
 double celsiusToFahrenheit(const double celsius)
