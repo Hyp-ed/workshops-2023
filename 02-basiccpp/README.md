@@ -91,20 +91,20 @@ By absolute sum we mean the sum of the absolute values of all the elements.
 You may find the [abs](https://www.cplusplus.com/reference/cmath/abs/) function from the C++ standard library helpful.
 Note that you will have to include the appropriate header file! (see the example on the linked page)
 
-The next function in the file is called `countNegatives`.
-It also takes a vector of floating point numbers, but it returns an unsigned integer.
-
-> Modify it so that it returns the number of negative elements in the vector.
-
-The last function in the file is called `average`. 
+The next function in the file is called `average`. 
 It takes a vector of floating point numbers, and returns the average.
 
 > Modify it so that it returns the average of all elements in the vector.
+
+The last function in the file is called `countNegatives`.
+It also takes a vector of floating point numbers, but it returns an unsigned integer.
+
+> Modify it so that it returns the number of negative elements in the vector.
 
 ### Exercise 4 - Prime Number
 
 In `lib/04_isprime.cpp`, there's a function `isPrime` that takes an integer `n` and returns a boolean indicating whether the number is a prime or not.
 
-> Prime numbers are numbers that are only divisable by itself and 1.
+> Prime numbers are numbers that are divisble by exactly two numbers.
 
 You can be creative with the algorithm you use to do this
