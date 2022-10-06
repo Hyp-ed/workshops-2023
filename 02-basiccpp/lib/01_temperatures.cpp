@@ -4,12 +4,14 @@ namespace hyped::workshop {
 
 double celsiusToKelvin(const double celsius)
 {
-  return 1.0;
+  double kelvin = celsius + 273.15;
+  return kelvin;
 }
 
 double celsiusToFahrenheit(const double celsius)
 {
-  return 1.0;
+  double fahr = (celsius * (9 / 5)) + 32;
+  return fahr;
 }
 
 }  // namespace hyped::workshop
