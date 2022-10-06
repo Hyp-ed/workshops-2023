@@ -1,7 +1,7 @@
 #pragma once
 
+#include <algorithm>
 #include <vector>
-
 namespace hyped::workshop {
 
 double sum(const std::vector<double> v);

@@ -4,7 +4,6 @@
 #include <vector>
 
 namespace hyped::workshop {
-
 struct PancakesEatenBy {
   std::string name;
   int num_pancakes_eaten;
