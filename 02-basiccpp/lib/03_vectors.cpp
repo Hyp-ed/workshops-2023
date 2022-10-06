@@ -19,10 +19,10 @@ double absoluteSum(const std::vector<double> v)
 {
   double sum = 0;
   for (double i : v) {
-    sum += i;
+    sum += fabs(i);
   }
   // abs dosen't accept?
-  return fabs(sum);
+  return sum;
 }
 
 double average(const std::vector<double> v)
