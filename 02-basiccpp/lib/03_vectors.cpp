@@ -2,26 +2,45 @@
 
 #include <cmath>
 
+#include <iostream>
+
 namespace hyped::workshop {
 
 double sum(const std::vector<double> v)
 {
-  return 1.0;
+  double sum = 0;
+  for (double i : v) {
+    sum += i;
+  }
+  return sum;
 }
 
 double absoluteSum(const std::vector<double> v)
 {
-  return 1.0;
+  double sum = 0;
+  for (double i : v) {
+    sum += i;
+  }
+  // abs dosen't accept?
+  return fabs(sum);
 }
 
 double average(const std::vector<double> v)
 {
-  return 1.0;
+  if (v.size() == 0) { return 0; }
+  double s = sum(v);
+
+  return s / v.size();
 }
 
 unsigned countNegatives(const std::vector<double> v)
 {
-  return 1;
+  int count = 0;
+  for (double i : v) {
+    if (i < 0) { count++; }
+  }
+
+  return count;
 }
 
 }  // namespace hyped::workshop

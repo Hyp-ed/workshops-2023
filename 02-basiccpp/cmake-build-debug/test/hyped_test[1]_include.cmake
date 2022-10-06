@@ -1,0 +1,5 @@
+if(EXISTS "/root/workshops-2023/02-basiccpp/cmake-build-debug/test/hyped_test[1]_tests.cmake")
+  include("/root/workshops-2023/02-basiccpp/cmake-build-debug/test/hyped_test[1]_tests.cmake")
+else()
+  add_test(hyped_test_NOT_BUILT hyped_test_NOT_BUILT)
+endif()
