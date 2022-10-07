@@ -1,38 +1,18 @@
-enable_testing()
-
-# -------------------------------------------------- #
-# BUILD TEST RUNNER                                  #
-# -------------------------------------------------- #
-
-# find test sources
-file(GLOB_RECURSE test_sources "*.test.cpp")
-
-# make target
-set(test_target "testrunner")
-set(TEST_BINARY "${CMAKE_BINARY_DIR}/test/testrunner")
-add_executable(${test_target} EXCLUDE_FROM_ALL ${test_sources})
-add_dependencies(${test_target} googletest)
-
-# include and link
-include_directories(
-    ${GTEST_INCLUDE_DIR}
-    ${CMAKE_SOURCE_DIR}/test
-    ${CMAKE_SOURCE_DIR}/lib
+set(target hyped_test)
+file(GLOB code "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+add_executable(${target} ${code})
+target_include_directories(${target}
+    PRIVATE
+    "${CMAKE_SOURCE_DIR}/lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}"
 )
-target_link_libraries(${test_target}
+target_link_libraries(${target}
+    GTest::gtest_main
     data
     state_machine
     hyped_utils
-    pthread
     gtest
+    pthread
 )
+gtest_discover_tests(${target})
 
-add_custom_target("${test_target}-format"
-    COMMAND clang-format -i -style=file ${test_sources}
-)
-add_dependencies(${test_target} "${test_target}-format")
-
-add_custom_target(test
-    COMMAND ${TEST_BINARY}
-    DEPENDS testrunner  
-)
