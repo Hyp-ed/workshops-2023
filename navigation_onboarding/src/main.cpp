@@ -1,4 +1,4 @@
-#include "navigation/navigation.hpp"
+#include "../lib/navigation.hpp"
 
 bool braking_state = false;
 
