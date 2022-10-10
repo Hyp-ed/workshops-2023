@@ -27,6 +27,14 @@ bool checkEmergency(const data::Navigation &nav_data, \
         throwing the kCriticalFailure flag or whether Telemetry gave the emergency stop command.
         This should return True if an emergency has occured, false otherwise.
   */
+
+   if (nav_data.module_status == data::ModuleStatus::kCriticalFailure || 
+   telemetry_data.module_status == data::ModuleStatus::kCriticalFailure || 
+   telemetry_data.nominal_braking_command == true) {
+      return true;
+   } else {
+      return false;
+   }
 }
 
 //--------------------------------------------------------------------------------------
@@ -36,13 +44,23 @@ bool checkEmergency(const data::Navigation &nav_data, \
 /* In our actual system, we would first check if every sub-module has initilized
    before moving on */
 
-bool checkModulesReady()
+bool checkModulesReady(const data::Navigation &nav_data, \
+                    const data::Telemetry &telemetry_data)
 {
   /*
     2. For this method, ensure that the sub-modules considered are ready. Again, if a module is
        ready then it would throw the kReady flag for its module status. If this is the case for all
        modules considered then return True.
    */
+  
+   if (nav_data.module_status == data::ModuleStatus::kReady &&
+      telemetry_data.module_status == data::ModuleStatus::kReady
+   ) {
+      return true;
+   } else {
+      return false;
+   }
+
 }
 
 //--------------------------------------------------------------------------------------
@@ -56,12 +74,53 @@ bool checkModulesReady()
       Your job here is to create methods that will check if these commands were received and return
       True if that is the case. Refer to data.hpp for the relevant boolean variables.
 */
+bool checkCalibrateCommand(const data::Telemetry &telemetry_data) {
+   if (telemetry_data.calibrate_command == true) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+bool checkLaunchCommand(const data::Telemetry &telemetry_data) {
+   if (telemetry_data.launch_command == true) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+bool checkShutdownCommand(const data::Telemetry &telemetry_data) {
+   if (telemetry_data.shutdown_command == true) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+/*
+bool checkEmergencyStop(const data::Telemetry &telemetry_data) {
+   if (telemetry_data.emergency_stop_command == true) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+bool checkNominalBraking(const data::Telemetry &telemetry_data) {
+   if (telemetry_data.nominal_braking_command == true) {
+      return true;
+   } else {
+      return false;
+   }
+}
+*/
 
 //--------------------------------------------------------------------------------------
 // Navigation Data Events
 //--------------------------------------------------------------------------------------
 
-bool checkEnteredBrakingZone()
+bool checkEnteredBrakingZone(const data::Navigation &nav_data)
 {
   /*
     4. Now, we need to know when the pod has entered the braking zone for us to then engage
@@ -74,14 +133,24 @@ bool checkEnteredBrakingZone()
        Lastly, if the required distance to brake exceeds the remaining distance left to travel,
        return True.
   */
+   if (nav_data.kRunLength - nav_data.displacement <= nav_data.braking_distance + nav_data.kBrakingBuffer) {
+      return true;
+   } else {
+      return false;
+   }
 }
 
-bool checkPodStopped()
+bool checkPodStopped(const data::Navigation &nav_data)
 {
   /*
     5. Lastly, by looking at the Navigation struct in data.hpp, determine when the pod has stopped
        and return True if that is the case.
   */
+   if (nav_data.velocity > 0.0) {
+      return false;
+   } else {
+      return true;
+   }
 }
 
 }  // namespace hyped::state_machine

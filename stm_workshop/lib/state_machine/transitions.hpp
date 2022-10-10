@@ -2,7 +2,7 @@
 
 #include "state.hpp"
 
-#include <data/data.hpp>
+#include "../data/data.hpp"
 
 namespace hyped::state_machine {
 
