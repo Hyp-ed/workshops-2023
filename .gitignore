@@ -33,6 +33,7 @@
 *.app
 
 # CMake 
+build
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
@@ -48,5 +49,3 @@ _deps
 ### CMake Patch ###
 # External projects
 *-prefix/
-
-*/build
