@@ -28,11 +28,12 @@ State *Idle::checkTransition()
 {
   updateModuleData();
 
+  bool emergency = checkEmergency(nav_data_, telemetry_data_);
+  if (emergency) { return FailureStopped::getInstance(); } 
+
   bool toCalibrate = checkCalibrateCommand(telemetry_data_);
   if (toCalibrate) { return Calibrating::getInstance(); } 
 
-  bool emergency = checkEmergency(nav_data_, telemetry_data_);
-  if (emergency) { return FailureBraking::getInstance(); } 
 
   return nullptr;
 }
@@ -57,11 +58,12 @@ State *Calibrating::checkTransition()
 {
   updateModuleData();
 
+  bool emergency = checkEmergency(nav_data_, telemetry_data_);
+  if (emergency) { return FailureStopped::getInstance(); } 
+
   bool allReady = checkModulesReady(nav_data_, telemetry_data_);
   if (allReady) { return Ready::getInstance(); } 
 
-  bool emergency = checkEmergency(nav_data_, telemetry_data_);
-  if (emergency) { return FailureBraking::getInstance(); } 
 
   return nullptr;
 }
@@ -77,6 +79,9 @@ char Ready::string_representation_[] = "Ready";
 State *Ready::checkTransition()
 {
   updateModuleData();
+
+  bool emergency = checkEmergency(nav_data_, telemetry_data_);
+  if (emergency) { return FailureStopped::getInstance(); }
 
   bool launch = checkLaunchCommand(telemetry_data_);
   if (launch) { return Accelerating::getInstance(); } 
@@ -101,11 +106,11 @@ State *Accelerating::checkTransition()
 {
   updateModuleData();
 
-  bool brakingZone = checkEnteredBrakingZone(nav_data_);
-  if (brakingZone) { return NominalBraking::getInstance(); } 
-
   bool emergency = checkEmergency(nav_data_, telemetry_data_);
-  if (emergency) { return FailureBraking::getInstance(); }  
+  if (emergency) { return FailureBraking::getInstance(); } 
+
+  bool brakingZone = checkEnteredBrakingZone(nav_data_);
+  if (brakingZone) { return NominalBraking::getInstance(); }  
 
   return nullptr;
 }

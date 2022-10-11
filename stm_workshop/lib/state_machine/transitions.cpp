@@ -30,7 +30,7 @@ bool checkEmergency(const data::Navigation &nav_data, \
 
    if (nav_data.module_status == data::ModuleStatus::kCriticalFailure || 
    telemetry_data.module_status == data::ModuleStatus::kCriticalFailure || 
-   telemetry_data.nominal_braking_command == true) {
+   telemetry_data.emergency_stop_command == true) {
       return true;
    } else {
       return false;
