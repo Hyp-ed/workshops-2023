@@ -6,22 +6,36 @@ namespace hyped::workshop {
 
 double sum(const std::vector<double> v)
 {
-  return 1.0;
+  double sum = 0.0;
+  for (int i = 0; i < v.size(); i++) {
+    sum = sum + v[i];
+  }
+  return sum;
 }
 
 double absoluteSum(const std::vector<double> v)
 {
-  return 1.0;
+  double sum = 0.0;
+  for (int i = 0; i < v.size(); i++) {
+    sum = sum + abs(v[i]);
+  }
+  return sum;
 }
 
 double average(const std::vector<double> v)
 {
-  return 1.0;
+  if (v.size() == 0) { return 0.0; }
+  double sumOutput = sum(v);
+  return sumOutput / v.size();
 }
 
 unsigned countNegatives(const std::vector<double> v)
 {
-  return 1;
+  unsigned negatives = 0.0;
+  for (int i = 0; i < v.size(); i++) {
+    if (v[i] < 0) { negatives = negatives + 1; }
+  }
+  return negatives;
 }
 
 }  // namespace hyped::workshop
